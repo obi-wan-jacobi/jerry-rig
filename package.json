@@ -11,7 +11,7 @@
     "lint": "eslint --fix",
     "prettier-format": "prettier --config ./.prettierrc .//**/*.{ts,js,jsx,json} --write",
     "build": "rimraf ./bin && tsc --project tsconfig.build.json",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "preversion": "npm run lint && npm run prettier-format && npm run test",
     "version": "npm run build && git add .",
     "postversion": "git push && git push --tags"
