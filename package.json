@@ -1,6 +1,6 @@
 {
   "name": "jerry-rig",
-  "version": "1.0.2",
+  "version": "1.0.1",
   "description": "Requires NPX",
   "main": "bin/index.js",
   "bin": {
@@ -11,7 +11,10 @@
     "lint": "eslint . --ext .ts,.tsx --fix",
     "prettier-format": "prettier --config ./.prettierrc .//**/*.{ts,js,jsx,json} --write",
     "build": "rimraf ./bin && tsc --project tsconfig.build.json",
-    "test": "jest"
+    "test": "jest",
+    "preversion": "npm run lint && npm run prettier-format && npm run test",
+    "version": "npm run build && git add .",
+    "postversion": "git push && git push --tags"
   },
   "dependencies": {
     "degit": "^2.8.4",
