@@ -12,19 +12,8 @@
     "noImplicitAny": true,
     "strictNullChecks": true,
     "moduleResolution": "node",
-    "noUnusedLocals": false,
-    "types": ["node", "jest"],
-    "paths": {
-      "@src/*": ["./*"],
-      "@builder/*": ["./builder/*"],
-      "@shell/*": ["./shell/*"],
-      "@fs-helpers/*": ["./fs-helpers/*"],
-      "@interfaces/*": ["./interfaces/*"]
-    }
+    "noUnusedLocals": false
   },
-  "ts-node": {
-    "esm": true
-  },
-  "include": ["./**/*.ts"],
+  "include": ["src/index.ts"],
   "exclude": ["node_modules"]
 }

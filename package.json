@@ -1,15 +1,21 @@
 {
-  "name": "template-nodejs-ts",
+  "name": "jerry-rig",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Requires NPX",
+  "main": "bin/index.js",
+  "bin": {
+    "jerry": "bin/index.js"
+  },
   "scripts": {
+    "tsc": "tsc",
     "lint": "eslint . --ext .ts,.tsx --fix",
     "prettier-format": "prettier --config ./.prettierrc .//**/*.{ts,js,jsx,json} --write",
-    "start": "npx ts-node -r tsconfig-paths/register ./src/main.ts",
+    "build": "rimraf ./bin && tsc --project tsconfig.build.json",
     "test": "jest"
   },
-  "dependencies": {},
+  "dependencies": {
+    "yargs": "^17.7.1"
+  },
   "devDependencies": {
     "@types/jest": "^29.5.0",
     "@types/node": "^18.7.16",
@@ -21,10 +27,22 @@
     "prettier": "^2.8.7",
     "rimraf": "^2.7.1",
     "ts-jest": "^29.0.5",
+    "ts-loader": "^9.4.2",
     "ts-node": "^10.9.1",
-    "tsconfig-paths": "^4.1.1",
+    "tsconfig-paths": "^4.1.2",
     "typescript": "^5.0.2"
   },
   "author": "",
-  "license": ""
+  "license": "ISC",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/obi-wan-jacobi/jerry-rig.git"
+  },
+  "bugs": {
+    "url": "https://github.com/obi-wan-jacobi/jerry-rig/issues"
+  },
+  "homepage": "https://github.com/obi-wan-jacobi/jerry-rig#readme"
 }
