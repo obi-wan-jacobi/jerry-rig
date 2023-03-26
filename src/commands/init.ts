@@ -8,8 +8,8 @@ const packageName = args[1];
 
 fetchRepoContentsAsync('obi-wan-jacobi/template-nodejs-ts-monorepo', cwd)
   .then(() => {
-    patchJsonFile(`${args[0]}/package.json`, [{ op: 'replace', path: '/name', value: packageName }]);
+    patchJsonFile(`${cwd}/package.json`, [{ op: 'replace', path: '/name', value: packageName }]);
   })
   .then(() => {
-    createDirectoryIfNotExists(`${args[0]}/packages`);
+    createDirectoryIfNotExists(`${cwd}/packages`);
   });

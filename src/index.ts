@@ -74,6 +74,18 @@ yargs(process.argv.slice(2))
     },
   } as unknown as yargs.CommandModule)
   .command({
+    command: 'version patch [package]',
+    aliases: ['p'],
+    describe: 'Run npm version patch in all packages or in the named package',
+    builder: () => {},
+    handler: (argv: any) => {
+      spawnChildProcessInSameShell({
+        cmd: `${NPX_TSNODE_COMMAND_PREFIX} ../src/commands/version-patch.ts ${process.cwd()} ${argv.package}`,
+        cwd: __dirname,
+      });
+    },
+  } as unknown as yargs.CommandModule)
+  .command({
     command: 'publish [package]',
     aliases: ['p'],
     describe: 'Run npm publish in all packages or in the named package',
