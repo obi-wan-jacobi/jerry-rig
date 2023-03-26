@@ -15,13 +15,24 @@ const NPX_TSNODE_COMMAND_PREFIX = 'npx ts-node -r tsconfig-paths/register';
 yargs(process.argv.slice(2))
   .scriptName('jerry')
   .command({
-    command: 'init',
-    aliases: ['i'],
+    command: 'init <name>',
     describe: 'Create a new project',
     builder: () => {},
-    handler: () => {
+    handler: (argv: any) => {
       spawnChildProcessInSameShell({
-        cmd: `${NPX_TSNODE_COMMAND_PREFIX} ../src/commands/init.ts ${process.cwd()}`,
+        cmd: `${NPX_TSNODE_COMMAND_PREFIX} ../src/commands/init.ts ${process.cwd()} ${argv.name}`,
+        cwd: __dirname,
+      });
+    },
+  } as unknown as yargs.CommandModule)
+  .command({
+    command: 'add <name>',
+    aliases: ['a'],
+    describe: 'Add a new package',
+    builder: () => {},
+    handler: (argv: any) => {
+      spawnChildProcessInSameShell({
+        cmd: `${NPX_TSNODE_COMMAND_PREFIX} ../src/commands/add.ts ${process.cwd()} ${argv.name}`,
         cwd: __dirname,
       });
     },
@@ -34,6 +45,42 @@ yargs(process.argv.slice(2))
     handler: (argv: any) => {
       spawnChildProcessInSameShell({
         cmd: `${NPX_TSNODE_COMMAND_PREFIX} ../src/commands/build.ts ${process.cwd()} ${argv.package}`,
+        cwd: __dirname,
+      });
+    },
+  } as unknown as yargs.CommandModule)
+  .command({
+    command: 'install [package]',
+    aliases: ['i'],
+    describe: 'Run npm install in all packages or in the named package',
+    builder: () => {},
+    handler: (argv: any) => {
+      spawnChildProcessInSameShell({
+        cmd: `${NPX_TSNODE_COMMAND_PREFIX} ../src/commands/install.ts ${process.cwd()} ${argv.package}`,
+        cwd: __dirname,
+      });
+    },
+  } as unknown as yargs.CommandModule)
+  .command({
+    command: 'update [package]',
+    aliases: ['u'],
+    describe: 'Run npm update in all packages or in the named package',
+    builder: () => {},
+    handler: (argv: any) => {
+      spawnChildProcessInSameShell({
+        cmd: `${NPX_TSNODE_COMMAND_PREFIX} ../src/commands/update.ts ${process.cwd()} ${argv.package}`,
+        cwd: __dirname,
+      });
+    },
+  } as unknown as yargs.CommandModule)
+  .command({
+    command: 'publish [package]',
+    aliases: ['p'],
+    describe: 'Run npm publish in all packages or in the named package',
+    builder: () => {},
+    handler: (argv: any) => {
+      spawnChildProcessInSameShell({
+        cmd: `${NPX_TSNODE_COMMAND_PREFIX} ../src/commands/publish.ts ${process.cwd()} ${argv.package}`,
         cwd: __dirname,
       });
     },
