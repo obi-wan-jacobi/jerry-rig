@@ -8,7 +8,7 @@
   },
   "scripts": {
     "tsc": "tsc",
-    "lint": "eslint . --ext .ts,.tsx --fix",
+    "lint": "eslint --fix",
     "prettier-format": "prettier --config ./.prettierrc .//**/*.{ts,js,jsx,json} --write",
     "build": "rimraf ./bin && tsc --project tsconfig.build.json",
     "test": "jest",
