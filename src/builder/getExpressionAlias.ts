@@ -8,17 +8,23 @@ export default function getExpressionAlias(expression: string): string | undefin
     const alias = expression
       .split('=')
       .shift()!
+      .split(':')
+      .shift()!
       .split(' ')
       .filter((expression) => expression.length > 0)
       .pop()!;
     return alias;
   }
   if (expression.includes('function')) {
-    const alias = expression.split('function').pop()!.split('(').shift()!.trim();
+    const alias = expression.split('function').pop()!.split('(').shift()!.split('<').shift()!.trim();
     return alias;
   }
   if (expression.includes('interface')) {
-    const alias = expression.split('interface').pop()!.split('{').shift()!.trim();
+    const alias = expression.split('interface').pop()!.split('{').shift()!.split('<').shift()!.trim();
+    return alias;
+  }
+  if (expression.includes('class')) {
+    const alias = expression.split('class').pop()!.split('{').shift()!.split('<').shift()!.trim();
     return alias;
   }
   return undefined;
