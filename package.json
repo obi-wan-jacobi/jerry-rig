@@ -1,6 +1,6 @@
 {
   "name": "jerry-rig",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Requires NPX",
   "main": "bin/index.js",
   "bin": {
