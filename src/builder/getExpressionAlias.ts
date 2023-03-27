@@ -1,9 +1,43 @@
 // limitations:
 // - export must contain '=' or 'function' to be split properly
 export default function getExpressionAlias(expression: string): string | undefined {
-  expression = expression.split('<').shift()!;
-  if (expression.includes('export default ()')) {
+  if (!expression.includes('export')) {
     return undefined;
+  }
+  expression = expression.split('<').shift()!;
+  if (expression.includes('export default (')) {
+    return undefined;
+  }
+  if (expression.includes('export default {')) {
+    return undefined;
+  }
+  if (expression.includes(' function ')) {
+    const alias = expression.split(' function ').pop()!.split('(').shift()!.trim();
+    return alias;
+  }
+  if (expression.includes(' function(')) {
+    return undefined;
+  }
+  if (expression.includes(' interface ')) {
+    const alias = expression.split(' interface ').pop()!.split('{').shift()!.split(' extends ').shift()!.trim();
+    return alias;
+  }
+  if (expression.includes(' class ')) {
+    const alias = expression
+      .split(' class ')
+      .pop()!
+      .split('{')
+      .shift()!
+      .split(' implements ')
+      .shift()!
+      .split(' extends ')
+      .shift()!
+      .trim();
+    return alias;
+  }
+  if (expression.includes('export enum')) {
+    const alias = expression.split('export enum').pop()!.split('{').shift()!.trim();
+    return alias;
   }
   if (expression.includes('=')) {
     const alias = expression
@@ -17,26 +51,5 @@ export default function getExpressionAlias(expression: string): string | undefin
       .trim();
     return alias;
   }
-  if (expression.includes('function')) {
-    const alias = expression.split('function').pop()!.split('(').shift()!.trim();
-    return alias;
-  }
-  if (expression.includes('interface')) {
-    const alias = expression.split('interface').pop()!.split('{').shift()!.split('extends').shift()!.trim();
-    return alias;
-  }
-  if (expression.includes('class')) {
-    const alias = expression
-      .split('class')
-      .pop()!
-      .split('{')
-      .shift()!
-      .split('implements')
-      .shift()!
-      .split('extends')
-      .shift()!
-      .trim();
-    return alias;
-  }
-  return undefined;
+  return expression.split('export default').pop()!.split(';').shift()!.trim() ?? undefined;
 }
