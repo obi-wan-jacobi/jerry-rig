@@ -1,5 +1,8 @@
 {
   "name": "jerry-rig",
+  "workspaces": [
+    "packages/package-1"
+  ],
   "version": "1.0.7",
   "description": "Requires NPX",
   "main": "bin/index.js",
@@ -36,8 +39,8 @@
     "tsconfig-paths": "^4.1.2",
     "typescript": "^5.0.2"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "obi-wan-jacobi",
+  "license": "",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/obi-wan-jacobi/jerry-rig.git"
