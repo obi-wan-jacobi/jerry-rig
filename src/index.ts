@@ -75,6 +75,7 @@ yargs(process.argv.slice(2))
   } as unknown as yargs.CommandModule)
   .command({
     command: 'version patch [package]',
+    aliases: ['vp'],
     describe: 'Run npm version patch in all packages or in the named package',
     builder: () => {},
     handler: (argv: any) => {
