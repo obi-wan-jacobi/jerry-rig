@@ -18,6 +18,8 @@ describe('building the index of package-1', () => {
       'namedArrowFunction',
       'namedFunction',
       'namedGenericFunction',
+      'exportdefaultnamedobjectlistbrokenovermultiplelines',
+      'exportdefaultnamedobjectlist',
       'namedObject',
       'myFunction',
       'myOtherFunction',
@@ -43,6 +45,17 @@ describe('building the index of package-1', () => {
       'MyOtherSpecialClass',
       'MyVerySpecialClass',
       'MY_ENUM',
+      'enumenumenum',
+      'var1',
+      'var2',
+      'myAliasedVar3',
+      'var4',
+      'var5',
+      'varThatHasAnInsanelyLongNameThatWillForceANewLine6',
+      'myAliasedVar7',
+      'varThatHasAnInsanelyLongNameThatWillForceANewLine8',
+      'varThatHasAnInsanelyLongNameThatWillForceANewLine9',
+      'MyClass',
     ];
     expectedReferences.forEach((ref) => {
       if (!indexFile.includes(ref)) {

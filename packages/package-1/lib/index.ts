@@ -10,6 +10,8 @@ import exportdefaultanonymousfunction from './utils/export-default-anonymous-fun
 import exportdefaultanonymousgenericarrowfunction from './utils/export-default-anonymous-generic-arrow-function';
 import exportdefaultanonymousgenericfunction from './utils/export-default-anonymous-generic-function';
 import exportdefaultanonymousobject from './utils/export-default-anonymous-object';
+import exportdefaultnamedobjectlist from './utils/export-default-named-object-list';
+import exportdefaultnamedobjectlistbrokenovermultiplelines from './utils/export-default-named-object-list-broken-over-multiple-lines';
 import myFunction, {
   myOtherFunction,
   functionfunctionfunction,
@@ -35,6 +37,15 @@ import myFunction, {
   MyVerySpecialClass,
   MY_ENUM,
   enumenumenum,
+  var1,
+  var2,
+  myAliasedVar3,
+  var4,
+  var5,
+  varThatHasAnInsanelyLongNameThatWillForceANewLine6,
+  myAliasedVar7,
+  varThatHasAnInsanelyLongNameThatWillForceANewLine8,
+  varThatHasAnInsanelyLongNameThatWillForceANewLine9,
 } from './utils/export-multiple-objects';
 import namedArrowFunction from './utils/export-default-named-arrow-function';
 import namedFunction from './utils/export-default-named-function';
@@ -56,6 +67,8 @@ export {
   namedArrowFunction,
   namedFunction,
   namedGenericFunction,
+  exportdefaultnamedobjectlistbrokenovermultiplelines,
+  exportdefaultnamedobjectlist,
   namedObject,
   myFunction,
   myOtherFunction,
@@ -82,6 +95,15 @@ export {
   MyVerySpecialClass,
   MY_ENUM,
   enumenumenum,
+  var1,
+  var2,
+  myAliasedVar3,
+  var4,
+  var5,
+  varThatHasAnInsanelyLongNameThatWillForceANewLine6,
+  myAliasedVar7,
+  varThatHasAnInsanelyLongNameThatWillForceANewLine8,
+  varThatHasAnInsanelyLongNameThatWillForceANewLine9,
   MyClass,
 };
 // </autogen>

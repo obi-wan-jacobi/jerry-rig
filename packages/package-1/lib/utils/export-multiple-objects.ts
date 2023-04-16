@@ -85,3 +85,23 @@ export enum enumenumenum {
   CONSTANT1,
   CONSTANT2,
 }
+
+const var1 = 'variable one!';
+export { var1 };
+
+const var2 = 'variable two!';
+const var3 = 'variable three!';
+const var4 = 'variable four!';
+const var5 = 'variable five!';
+export { var2, var3 as myAliasedVar3, var4, var5 };
+
+const varThatHasAnInsanelyLongNameThatWillForceANewLine6 = 'variable six!';
+const varThatHasAnInsanelyLongNameThatWillForceANewLine7 = 'variable seven!';
+const varThatHasAnInsanelyLongNameThatWillForceANewLine8 = 'variable eight!';
+const varThatHasAnInsanelyLongNameThatWillForceANewLine9 = 'variable nine!';
+export {
+  varThatHasAnInsanelyLongNameThatWillForceANewLine6,
+  varThatHasAnInsanelyLongNameThatWillForceANewLine7 as myAliasedVar7,
+  varThatHasAnInsanelyLongNameThatWillForceANewLine8,
+  varThatHasAnInsanelyLongNameThatWillForceANewLine9,
+};

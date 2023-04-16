@@ -1,8 +1,5 @@
-// limitations:
+import getExpressionAliases from './getExpressionAlias';
 
-import getExpressionAlias from './getExpressionAlias';
-
-// - export must contain '=' or 'function' to be split properly
 export default function getDefaultExportAlias(fileName: string, fileContent: string): string | undefined {
   if (!fileContent.includes('export default')) {
     return undefined;
@@ -14,7 +11,9 @@ export default function getDefaultExportAlias(fileName: string, fileContent: str
     .split('\n')
     .filter((exp) => !exp.trimStart().startsWith('//'))
     .filter((exp) => exp.includes('export default'))
-    .map(getExpressionAlias)
+    .map(getExpressionAliases)
+    .flat()
+    .filter((exp) => exp && exp.length > 0)
     .shift();
   if (defaultExportAlias) {
     return defaultExportAlias;
