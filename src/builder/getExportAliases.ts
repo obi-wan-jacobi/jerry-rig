@@ -20,7 +20,6 @@ export default function getExportAliases(fileContent: string): string[] {
     .join(' ')
     .matchAll(/(?<=export {)(.*?)(?=};)/g);
   const exportsBetweenBrackets = Array.from(exportsBetweenBracketsIterator).map((x) => `export {${x[0]}};`);
-  console.log(exportsBetweenBrackets);
   return directExportsWithNoBrackets
     .concat(exportsBetweenBrackets)
     .map(getExpressionAliases)
