@@ -7,8 +7,8 @@ export default function spawnChildProcessInSameShell({ cmd, cwd }: { cmd: string
       shell: true,
       stdio: 'inherit',
     })
-      .addListener('close', () => {
-        resolve();
+      .addListener('close', (code: number) => {
+        code === 0 ? resolve() : reject();
       })
       .addListener('error', () => {
         reject();
