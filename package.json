@@ -3,7 +3,7 @@
   "workspaces": [
     "packages/package-1"
   ],
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "Requires NPX",
   "main": "bin/index.js",
   "bin": {
