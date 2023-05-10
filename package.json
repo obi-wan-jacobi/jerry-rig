@@ -11,7 +11,7 @@
   },
   "scripts": {
     "tsc": "tsc",
-    "lint": "eslint --fix",
+    "lint": "eslint . --ext .ts,.tsx --fix",
     "prettier-format": "prettier --config ./.prettierrc .//**/*.{ts,js,jsx,json} --write",
     "build": "rimraf ./bin && tsc --project tsconfig.build.json",
     "test": "jest",
