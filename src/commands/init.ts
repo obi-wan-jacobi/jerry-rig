@@ -1,5 +1,5 @@
 import createDirectoryIfNotExists from '@fs-helpers/createDirectoryIfNotExists';
-import fetchRepoContentsAsync from '@src/degit/fetchRepoContents';
+import fetchRepoContentsAsync from '@src/degit/fetchRepoContentsAsync';
 import patchJsonFile from '@src/fs-helpers/patchJsonFile';
 
 const args = process.argv.slice(2);

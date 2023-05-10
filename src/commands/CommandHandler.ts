@@ -3,22 +3,29 @@ import spawnChildProcessInSameShell from '@shell/spawnChildProcessInSameShell';
 
 export default class CommandHandler {
   private __cmd: string | ((packagePath: string) => void);
-  private __cwd?: string;
-  private __packageName?: string;
+  private __cwd: string;
+  private __packageNames: string[];
 
-  public constructor(cmd: string | ((packagePath: string) => void), cwd?: string, packageName?: string) {
+  public constructor({
+    cmd,
+    cwd,
+    packageNames = [],
+  }: {
+    cmd: string | ((packagePath: string) => void);
+    cwd: string;
+    packageNames: string[];
+  }) {
     this.__cmd = cmd;
     this.__cwd = cwd;
-    this.__packageName = packageName;
+    this.__packageNames = packageNames;
   }
 
   public async invoke(): Promise<string[]> {
-    const args = process.argv.slice(2);
-    const cwd = this.__cwd ?? args[0];
-    const packageName = this.__packageName ?? args[1];
+    const cwd = this.__cwd;
+    const packageNames = this.__packageNames;
     return new Promise<string[]>((resolve) => {
-      if (packageName && packageName !== 'undefined' && packageName.length > 0) {
-        return resolve([`${cwd}/packages/${packageName}`]);
+      if (packageNames.length > 0) {
+        return resolve(packageNames.map((packageName) => `${cwd}/packages/${packageName}`));
       }
       return getDirectoryPathsAsync(`${cwd}/packages`).then(resolve);
     }).then((packagePaths) => {

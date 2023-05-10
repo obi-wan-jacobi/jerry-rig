@@ -1,5 +1,5 @@
 import createDirectoryIfNotExists from '@fs-helpers/createDirectoryIfNotExists';
-import fetchRepoContentsAsync from '@src/degit/fetchRepoContents';
+import fetchRepoContentsAsync from '@src/degit/fetchRepoContentsAsync';
 import patchJsonFile from '@fs-helpers/patchJsonFile';
 import getFileContentAsString from '@src/fs-helpers/getFileContentAsString';
 import fs from 'fs';

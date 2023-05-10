@@ -8,8 +8,10 @@
     "./dist/**"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rimraf ./dist && tsc"
+    "lint": "eslint --fix",
+    "prettier-format": "prettier --config ./../../.prettierrc --ignore-path ./../../.prettierignore .//**/*.{ts,js,jsx,json} --write --no-error-on-unmatched-pattern",
+    "build": "rimraf ./dist && tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "obi-wan-jacobi",
   "license": "",

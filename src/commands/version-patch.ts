@@ -3,13 +3,13 @@ import CommandHandler from './CommandHandler';
 
 const args = process.argv.slice(2);
 const cwd = args[0];
-const packageName = args[1];
+const packageNames = args.length > 0 ? args[1].split(',').filter((x) => x !== 'undefined') : [];
 
 const NPX_TSNODE_COMMAND_PREFIX = 'npx ts-node -r tsconfig-paths/register';
 
 spawnChildProcessInSameShell({
-  cmd: `${NPX_TSNODE_COMMAND_PREFIX} ./build.ts ${cwd} ${packageName}`,
+  cmd: `${NPX_TSNODE_COMMAND_PREFIX} ./build.ts ${cwd} ${packageNames}`,
   cwd: __dirname,
 }).then(() => {
-  return new CommandHandler('npm version patch').invoke();
+  return new CommandHandler({ cmd: 'npm version patch', cwd, packageNames }).invoke();
 });
