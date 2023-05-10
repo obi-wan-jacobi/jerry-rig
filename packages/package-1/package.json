@@ -1,6 +1,6 @@
 {
   "name": "@jerry-rig/package-1",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "./node_modules/.bin/rimraf ./dist && tsc"
+    "build": "rimraf ./dist && tsc"
   },
   "author": "obi-wan-jacobi",
   "license": "",
