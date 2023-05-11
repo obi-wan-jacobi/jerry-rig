@@ -97,5 +97,17 @@ yargs(process.argv.slice(2))
       });
     },
   } as unknown as yargs.CommandModule)
+  .command({
+    command: 'do <command>',
+    aliases: ['do'],
+    describe: 'Run a command against all packages',
+    builder: () => {},
+    handler: (argv: any) => {
+      spawnChildProcessInSameShell({
+        cmd: `${NPX_TSNODE_COMMAND_PREFIX} ../src/commands/do.ts ${process.cwd()} ${argv.command}`,
+        cwd: __dirname,
+      });
+    },
+  } as unknown as yargs.CommandModule)
   .demandCommand()
   .help().argv;
