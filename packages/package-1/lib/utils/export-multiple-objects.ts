@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unnecessary-type-constraint */
 export default function myFunction(): void {
   console.log('Hello World!');
 }

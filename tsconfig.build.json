@@ -6,14 +6,26 @@
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "allowJs": false,
-    "target": "ESNext",
     "module": "CommonJS",
+    "target": "ESNext",
     "sourceMap": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
     "moduleResolution": "node",
-    "noUnusedLocals": false
+    "noUnusedLocals": false,
+    "types": ["node", "yargs"],
+    "paths": {
+      "@src/*": ["./*"],
+      "@builder/*": ["./builder/*"],
+      "@commands/*": ["./commands/*"],
+      "@shell/*": ["./shell/*"],
+      "@fs-helpers/*": ["./fs-helpers/*"],
+      "@interfaces/*": ["./interfaces/*"]
+    }
   },
-  "include": ["src/index.ts"],
-  "exclude": ["node_modules"]
+  "ts-node": {
+    "esm": true
+  },
+  "include": ["./src/**/*.ts"],
+  "exclude": []
 }

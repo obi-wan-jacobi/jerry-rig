@@ -1,0 +1,20 @@
+{
+  "name": "@jerry-rig/package-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "lint": "eslint --fix",
+    "prettier-format": "prettier --config ./../../.prettierrc --ignore-path ./../../.prettierignore .//**/*.{ts,js,jsx,json} --write --no-error-on-unmatched-pattern",
+    "build": "rimraf ./dist && tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "obi-wan-jacobi",
+  "license": "",
+  "dependencies": {},
+  "devDependencies": {}
+}

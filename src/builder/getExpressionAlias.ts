@@ -1,5 +1,3 @@
-// limitations:
-// - export must contain '=' or 'function' to be split properly
 export default function getExpressionAliases(expression: string): string[] {
   if (!expression.includes('export')) {
     return [];
